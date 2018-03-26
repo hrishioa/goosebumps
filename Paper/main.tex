@@ -79,7 +79,7 @@ headsepline, % Uncomment to get a line under the header
 \addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
 
 \subject{Mathematical, Computational and Statistical Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
-\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\keywords{Sensory Substitution, Tactile Feedback, Wearable Device} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
 \university{\href{https://www.yale-nus.edu.sg/}{Yale-NUS College}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
 \department{{}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
 \group{{}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
@@ -150,6 +150,9 @@ headsepline, % Uncomment to get a line under the header
 
 \noindent I, \authorname, declare that the product of this Project, the Thesis, is the end result of my own work and that due acknowledgement has been given in the bibliography and references to ALL sources be they  printed, electronic, or personal, in accordance with the academic regulations of Yale‐NUS College.
 
+I acknowledge that the Thesis is subject to the policies relating to Yale‐NUS College Intellectual  Property (Yale‐NUS HR 039).
+
+
 % I confirm that:
 %
 % \begin{itemize}
@@ -186,7 +189,7 @@ headsepline, % Uncomment to get a line under the header
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-Sensory substitution is a field of Human Computer Interaction that has long been explored as a possible avenue to replace and improve human sensory perception. This paper explores novel frameworks for designing and evaluating a sensory substitution system based on haptic feedback, in a way that can build a standard extensible base for future research. A new device for haptic spatial navigation, along with a novel encoding protocol is also developed, and evaluated. Results show that training is a signifcant component of such systems, as well as indicating possible features that can improve the experience of the user.
+Sensory substitution is a field of Human Computer Interaction that has long been explored as a possible avenue to replace and improve human sensory perception. This paper explores novel frameworks for designing and evaluating a sensory substitution system based on haptic feedback, in a way that can build a standard extensible base for future research. A new device for haptic spatial navigation, along with a novel encoding protocol is also developed, and evaluated. Results show that training is a signifcant component of such systems, as well as indicating possible features that can improve the experience of the user. The result is two experiments that deal with spatial navigation in two and three dimensions, using which participants are able to navigate their environments having replaced one of their sensors with the device.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -352,12 +355,12 @@ Some of the work that has been previously undertaken involve aiding the visually
 		% \centering
     \includegraphics[height=0.75\textwidth]{images/Brainport}
 		\decoRule
-    \caption[BrainPort Device]{Brainport Device.}
+    \caption[\textsc{BrainPort} Device]{\textsc{Brainport} Device.}
     \label{fig:bp1}
   \end{subfigure}
   %
   \begin{subfigure}[b]{0.4\textwidth}
-		% \centering
+		% \centeringf
     \includegraphics[height=0.75\textwidth]{images/Brainport2}
 		\decoRule
     \caption[\textsc{BrainPort} images]{Captured and transmitted images from \textsc{BrainPort}.}
@@ -515,7 +518,7 @@ Due to time and resource limitations, a formal experiment for Phase 1 was not pe
 \section{Phase 2: Virtual Reality Fitts Test}
 
 Phase 2 has the participants perform a Fitts test (a pointing task that measures accuracy in a standardised way) in a Virtual Reality environment, with and without the aid of sight.
-Shown in Figure\todo{Take and add a figure showing experiment setup here}, the participants follow the training-testing structure of Phase 1, where they point and click at various targets in the virtual world.
+Shown in Figure~\ref{fig:experimentsetup}, the participants follow the training-testing structure of Phase 1, where they point and click at various targets in the virtual world.
 
 Iteratively improving on the results and design of Phase 1, Phase 2 is a more complex task in a noisier environment. For one, Phase 1 operated on continuous-feedback. The participants were continuously made aware of success and failure in relation to the task, while Phase 2 provides delayed-feedback, where the completion of a task has a much more time-dilated response. In addition, moving from two dimensions (two vectors) of critical information to three adds the potential for noise and sensory overload. With this in mind, let's consider the modular design where it deviates from Phase 1:
 
