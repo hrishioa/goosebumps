@@ -23,6 +23,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[
+hidelinks,
 12pt, % The default document font size, options: 10pt, 11pt, 12pt
 oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
 english, % ngerman for German
@@ -148,7 +149,7 @@ headsepline, % Uncomment to get a line under the header
 \begin{declaration}
 \addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
 
-\noindent I, \authorname, declare that the product of this Project, the Thesis, is the end result of my own work and that due acknowledgement has been given in the bibliography and references to ALL sources be they  printed, electronic, or personal, in accordance with the academic regulations of Yale‐NUS College.
+\noindent I, \authorname, hereby declare that this Project, the Capstone Report and associated work listed herein, is the end result of my own work and that due acknowledgement has been given in the bibliography and references to ALL sources printed, electronic, or personal, in accordance with the academic regulations of Yale‐NUS College.
 
 I acknowledge that the Thesis is subject to the policies relating to Yale‐NUS College Intellectual  Property (Yale‐NUS HR 039).
 
@@ -189,7 +190,7 @@ I acknowledge that the Thesis is subject to the policies relating to Yale�
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-Sensory substitution is a field of Human Computer Interaction that has long been explored as a possible avenue to replace and improve human sensory perception. This paper explores novel frameworks for designing and evaluating a sensory substitution system based on haptic feedback, in a way that can build a standard extensible base for future research. A new device for haptic spatial navigation, along with a novel encoding protocol is also developed, and evaluated. Results show that training is a signifcant component of such systems, as well as indicating possible features that can improve the experience of the user. The result is two experiments that deal with spatial navigation in two and three dimensions, using which participants are able to navigate their environments having replaced one of their sensors with the device.
+Sensory substitution is a field of Human Computer Interaction that has long been explored as a possible avenue to replace and improve human sensory perception. This paper explores novel frameworks for designing and evaluating a sensory substitution system based on haptic feedback, in a way that can build a standard extensible base for future research. A new device for haptic spatial navigation, along with a novel encoding protocol is also developed and evaluated. Results show that training is a significant component of such systems, and indicates possible features that can improve the experience of the user. The result is two experiments, in two and three dimensions, that deal with spatial navigation. In these, participants are able to navigate their environments while having replaced one of their sensors with the device.
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -199,11 +200,11 @@ Sensory substitution is a field of Human Computer Interaction that has long been
 \begin{acknowledgements}
 \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
 
-I would like to thank my capstone supervisor Prof. Simon Perrault for the invaluable guidance in shaping what was a weekend project into a capstone thesis, and for helping me through the many, many obstacles along the way. This project would not have the form it does today without his constant support and valued feedback.
+I am very thankful to my capstone supervisor Prof. Simon Perrault for the invaluable guidance in shaping what was a weekend project into a capstone thesis, and for helping me through the many, many obstacles along the way. This project would not have the form it does today without his constant support and valued feedback.
 
 I would also like to thank Aaron Ong and Parag Bhatnagar for help in developing the kernel that was haptic sensory substitution into a real project, and for the apt criticism and many midnights spent poring over the viability of the prototypes.
 
-I am very thankful to my capstone examiner, Prof. David Smith, whose contributions both in writing and in person to this report have made it (by multiple accounts) far more understandable yet succinct.
+I would like to thank my capstone examiner, Prof. David Smith, whose contributions both in writing and in person to this report have made it (by multiple accounts) far more understandable yet succinct.
 
 I am extremely grateful for the MCS batch of 2018, whose support and camaraderie in the tough times of the year helped complete this project, and keep me sane as I write the final sentences of it.
 
@@ -289,7 +290,7 @@ Finally, I'd like to thank Hebe Hilhorst for her sharp quick-witted criticism an
 \chapter{Introduction}
 \label{Introduction}
 
-We as humans perceive the world through a sensory envelope made up of the signals relayed to our brains through the primary senses - touch, sight, taste, hearing and so on. This sensory envelope (called the \textit{umwelt}) is in many cases limited compared to the current state-of-the-art in technology. We are unable to perceive the full breadth of the electromagnetic spectrum, hear anything beyond a narrow range of frequencies, not to mention the digital signals that make up the internet and the collective digital consciousness of the human race. This is without considering those of us that have been deprived of the standard human umwelt through congenital defects and injury.
+We as humans perceive the world through a sensory envelope made up of the signals relayed to our brains through the primary senses - touch, sight, taste, hearing and so on. This sensory envelope (called the \textit{umwelt}) is in many cases limited compared to the current state-of-the-art in technology. We are unable to perceive the full breadth of the electromagnetic spectrum, hear anything beyond a narrow range of frequencies, or feel the digital signals that make up the internet and the collective digital consciousness of the human race. This is without considering those of us that have been deprived of the standard human umwelt through congenital defects and injury.
 
 In this paper, we will consider the possibility of using recent advances in technology to expand the sensory envelope through sensory substitution.
 
@@ -298,7 +299,7 @@ Before working on this project, my primary background consisted of working on Ar
 
 In 2003, a paper \parencite{bach-y-rita_seeing_nodate} by a neuroscientist named Paul Bach-y-Rita claimed to have developed a device by which the blind could regain their sight. A series of electrodes attached to the tongue conveyed a low resolution image captured by a camera sitting atop the subject’s forehead. Through this rudimentary but ground-breaking procedure, subjects both congenitally blind and temporarily blindfolded could learn to distinguish objects and traffic and catch moving objects with remarkable accuracy with only hours of training time.
 
-Unfortunately, his work did not see much subsequent study, perhaps in part due to an incomplete understanding at the time of how neuroplasticity works \parencite{doidge_brain_2008}.
+Unfortunately, his work did not see much subsequent study, perhaps in part due to an incomplete understanding of how neuroplasticity works \parencite{doidge_brain_2008}.
 
 \begin{figure}[th]
 	\centering
@@ -320,7 +321,7 @@ Unfortunately, his work did not see much subsequent study, perhaps in part due t
 	\caption[Mechanical apparatus for sensory substitution]{}
 \end{figure}
 
-Moving further back into history, a Nature paper \parencite{white_vision_1969} by the same author 34 years before reported a mechatronic device which consisted of a chair that had a series of vibrating devices attached to the back, and cranks by which a camera could be moved by subjects. 400 lbs in total, the bulky device provided a similar experience, albeit with the limitations of the computing technology of its time.
+Moving further back into history, a Nature paper \parencite{white_vision_1969} by the same author 34 years before reported a mechatronic device which consisted of a chair that had a series of vibrating devices attached to the back, and cranks by which a camera could be moved by subjects. 400 lbs in total, the bulky device provided a similar experience, albeit within the limitations of the computing technology of its time.
 
 Despite the experiments revealing that subjects were able to perform complicated visual processing tasks solely based on input from the chair (with only minimal training), the methods proved unusable in the industry due to a multiplicity of factors \parencite{phillips_predictors_1993}. The devices placed the user in significant discomfort, were complicated to use and relatively low-resolution, all in addition to being prohibitively expensive and limited by the technology of their time.
 
@@ -333,21 +334,21 @@ Given the improvements in technology related to processing power, portability an
 This paper presents the following original contributions:
 
 \begin{enumerate}
-	\item A hardware device for haptic sensory substitution along with a short evaluation of existing hardware and software stacks, as well as designs for the construction of such a device.
+	\item A hardware device for haptic sensory substitution along with designs for the construction, as well as a short evaluation of existing hardware and software stacks.
 	\item Multiple implementations for sensory substitution using haptic feedback, using continuous feedback processes as well as delayed-feedback spatial navigation tasks, each of which include:
 		\begin{enumerate}
 			\item a front-end for providing visual input to the user during the training phase, as
 		 	well as useful readouts to the researcher,
 			\item a transmission protocol, which maps information from the task at hand (spatial coordinates, velocity information, etc) to time-based sensor actuation signals (20$^{\circ}$ on servo 1, 35$^{\circ}$ on servo 2, etc) in real-time.
 		\end{enumerate}
-	\item Multiple metrics for the evaluating the performance of a sensory substitution system, as well as sample tasks that can be used to standardise and compare performance across the board for future research.
+	\item Multiple metrics for evaluating the performance of a sensory substitution system, as well as sample tasks that can be used to standardise and compare performance across the board for future research.
 \end{enumerate}
 
 In addition, code for displaying results in real-time, modules for managing servo overload, network latency and other factors was also written by the author.
 
 \section{Related Work}
 
-Some of the work that has been previously undertaken involve aiding the visually impaired in navigation and object recognition. These were helpful in identifying primary methods of communication with the brain through haptic feedback. The knowledge was used to construct early versions of a framework\footnote{In the course of this paper, the terms \textit{framework} and \textit{system} are used to describe the complete end-to-end sensory substitution module.} for providing signals to the brain, in a way that could be quickly iterated upon to find novel solutions.
+Some of the work that has been previously undertaken involves aiding the visually impaired in navigation and object recognition. These were helpful in identifying primary methods of communication with the brain through haptic feedback. The knowledge was used to construct early versions of a framework\footnote{In the course of this paper, the terms \textit{framework} and \textit{system} are used to describe the complete end-to-end sensory substitution module.} for providing signals to the brain, in a way that could be quickly iterated upon to find novel solutions.
 
 \begin{figure}[th]
 	\centering
@@ -369,9 +370,9 @@ Some of the work that has been previously undertaken involve aiding the visually
 	\caption[\textsc{BrainPort} implementation]{}
 \end{figure}
 
-\textsc{BrainPort} \parencite{upson_tongue_2007} implements an industrial version of the aforementioned \parencite{bach-y-rita_seeing_nodate}. Figure~\ref{fig:bp1} shows the modifications made since the original, resulting in a smaller device that can fit on a pair of eyeglasses and requires an additional battery pack not in view.
+\textsc{BrainPort} \parencite{upson_tongue_2007} implements an industrial version of the aforementioned paper \parencite{bach-y-rita_seeing_nodate}. Figure~\ref{fig:bp1} shows the modifications made since the original, resulting in a smaller device that can fit on a pair of eyeglasses and requires an additional battery pack not in view.
 
-Despite having received considerable funding and attention in the media, clinical trials of the device \parencite{nau_acquisition_2015} encountered a number of problems which then became part of the primary focii of our endeavor. Studies report the device as having "poor spatial acuity" \parencite{stronks_visual_2016}, as well as severe limitations in temporal resolution. The primary cause of these problems is attributed to the "limited bandwidth of perceived information" that the device is capable of. We aim to address these primary concerns by building a metric that can measure and improve on transmitted\footnote{In order to maintain the analogy of "signal transmission" to the brain, the verb transmit will be - unless otherwise stated explicitly or contextually - used to indicate the information being conveyed to the user from a system, usually at the exact point of the Human-Computer Interface.} effective bandwidth (something we will cover later in this section), spatial acuity, and temporal resolution.
+Despite having received considerable funding and attention in the media, clinical trials of the device \parencite{nau_acquisition_2015} encountered a number of problems. Studies report the device as having "poor spatial acuity" \parencite{stronks_visual_2016}, as well as severe limitations in temporal resolution. The primary cause of these problems is attributed to the "limited bandwidth of perceived information" that the device is capable of.
 
 \,
 
@@ -383,7 +384,7 @@ Despite having received considerable funding and attention in the media, clinica
 \label{fig:gist}
 \end{figure}
 
-Since then, the advances in processing capability and computer-vision have led to projects that make use of real-time image processing. \textsc{GIST} \citep{khambadkar_gist:_2013} is a device that provides additional information to a user as to what he is pointing at. Figure~\ref{fig:gist} demonstrates this device in operation. While initially quite promising, the device cannot be expected to work well in realistic scenarios. Due to the use of bulky external depth sensors that require non-mobile sources of power, the device is not truly portable. In addition, the authors report that scanning any object in the non-dominant side of a user causes the device to recalibrate (due to a consequent small turn of the torso). In addition, the device reports only two slow-updating channels of information. The two channels are the distance to an object and the color (presumably limited by the resolution of descriptive color words in English). One other project \parencite{akhter_smartphone-based_2011} attempts to use smartphones to create and process stereo information for depth sensing, but the project has not reached the testing stage.
+Since 2007, the advances in processing capability and computer-vision have led to projects that make use of real-time image processing. \textsc{GIST} \citep{khambadkar_gist:_2013} is a device that provides additional information to a user about what he is pointing at. Figure~\ref{fig:gist} demonstrates this device in operation. While initially quite promising, the device cannot be expected to work well in realistic scenarios. Due to the use of bulky external depth sensors that require non-mobile sources of power, the device is not truly portable. In addition, the authors report that scanning any object in the non-dominant side of a user causes the device to recalibrate (due to a consequent small turn of the torso). In addition, the device only reports two slow-updating channels of information. The two channels are the distance to an object and the color (presumably limited by the resolution of descriptive color words in English). One other project \parencite{akhter_smartphone-based_2011} attempts to use smartphones to create and process stereo information for depth sensing, but the project has not reached the testing stage.
 
 \begin{figure}
 \centering
@@ -401,29 +402,29 @@ Since then, the advances in processing capability and computer-vision have led t
 \end{minipage}
 \end{figure}
 
-The project that comes closest to solving some of these problems is the Tacit Project \parencite{hoefer_meet_nodate}, which attempts to use stereo ultrasound sensors to convert distance information to haptic "squeezes" on the user's arm. Despite not containing any field tests or experiment results, my interest in the project is primarily because it aligns with the goals we have been forming from review: It is cheap, portable, relatively high bandwidth and places importance on temporal resolution and continuous signaling. Unfortunately, the lack of any experiments demotes us to reading comments and online opinions from users who \emph{do not} possess the device. In addition, Tacit is limited in temporal resolution, as it implements delays of up to 500ms between actuations, effectively being limited to a near 1 Hz frequency.
+The project that comes closest to solving some of these problems is the Tacit Project \parencite{hoefer_meet_nodate}, which attempts to use stereo ultrasound sensors to convert distance information to haptic "squeezes" on the user's arm. Despite not providing any field tests or experiment results, my interest in the project remains because it aligns with the goals we have been forming from review: It is cheap, portable, relatively high bandwidth and places importance on temporal resolution and continuous signaling. Unfortunately, the lack of any experiments demotes us to reading comments and online opinions from users who \emph{do not} possess the device. In addition, Tacit is limited in temporal resolution, as it implements delays of up to 500ms between actuations, effectively being limited to a near 1 Hz frequency.
 From the projects we've considered, a clear set of goals can be formulated from which to build a framework, and a number of metrics that can be used to evaluate such a system.
 
-A well-known paper \parencite{m._fitts_information_1992} in Human Computer Interaction from 1954 outlines Fitts Law, a predictive model that can be used to calculate the time taken for a one-dimensional movement-based task from the distance moved and the size of the target. While one-dimensional movement cannot be easily extended to spatial navigation, there is merit in observing the time taken from an information theory standpoint. Below, we will also attempt to develop a set of metrics that can be used beyond the scope of this experiment to determine the theoretical maximum bandwidth of sensory substitution systems, if there exists one.
+A well-known paper \parencite{m._fitts_information_1992} in Human Computer Interaction from 1954 outlines Fitts Law, a predictive model that can be used to calculate the time taken for a one-dimensional movement-based task from the distance moved and the size of the target. While one-dimensional movement cannot be easily extended to spatial navigation, there is merit in observing the time taken from an information theory standpoint. Below, we will also attempt to develop a set of metrics that can be used beyond the scope of this experiment to determine the theoretical maximum bandwidth of sensory substitution systems, if one exists.
 
 \chapter{Development}
 \label{Development}
 
-From the projects we've considered, a clear set of goals can be formulated from which to build a framework, and a number of task-based metrics that can be used to evaluate such a framework. The distinction here is that the goals concern its construction, designed to maximize the utility of the system to an end-user while the metrics are intended to be used in measuring performance with comparison in mind.
+From the projects we've considered, a clear set of goals can be formulated from which to build a framework, and a number of task-based metrics that can be used to evaluate such a framework. The distinction between these is that the goals for the framework concern its construction, designed to maximize the utility of the system to an end-user, while the metrics are intended to be used in measuring performance with comparison in mind. This will be explored at the time of the experiment.
 
 \section{Goals}
 
-The goals of the system are as follows:
+For the framework, our goals are as follows:
 
 \begin{itemize}
-\item \textbf{Generalizable Transmission Protocol:} One of the primary challenges of sensory substitution lies in mapping data from one realm to the sensory realm that is used to convey the information to the user. This is also a function of the human sensory infrastructure. For example, hearing operates by mapping specific wavelengths of sound waves to hair strands in the ear that convert the amplitude into intermittent electrical signals. Arguably one of the most important parts of the system, the aim of isolating the transmission protocol is to develop, compare and decide from a number of encodings for information streams encountered in the real world. An emphasis is placed on the protocol not being application specific in a way that hinders its application to similar tasks. Additional emphasis is placed on minimizing the calibration and testing required before deployment.
-\item \textbf{Continuous Signaling:} Another conspicuously lacking element in past work is the discrete nature of the feedback provided. Systems we have looked at so far continuously snapshot the environmental signals meant to be conveyed, reduce them over a time window to a lower resolution counterpart and then transmit this to the user. Studies \parencite{kristjansson_designing_nodate} regarding the effectiveness of sensory substitution devices indicate that "spatiotemporal continuity" is significant in maintaining immersion and shortening the training and acclimatization period. Based on this, the framework prioritizes the transmission of continuous signals. Measuring and increasing the frequency (in addition to the bandwidth metrics stated above) of transmitted information is also of value.
-\item \textbf{Effective Bandwidth:} While measurement of effective bandwidth is only possible in a task-based environment (after implementation), it is a priority in design to ensure that the no part of the system is the bottleneck in conveying this information. This will involve making sure that network latency (when involved), as well as the hardware limitations of the device are understood and accounted for.
+\item \textbf{Generalizable Transmission Protocol:} One of the primary challenges of sensory substitution lies in mapping data from the external world to the sensory realm which conveys information to the user. This is also a function of the human sensory infrastructure. For example, hearing operates by mapping specific wavelengths of sound waves to hair strands in the ear that convert the amplitude into intermittent electrical signals. Arguably one of the most important parts of the system, the aim of isolating the transmission protocol is to develop, compare and decide from a number of encodings for information streams encountered in the real world. An emphasis is placed on the protocol not being application specific in a way that hinders its application to similar tasks. Additional emphasis is placed on minimizing the calibration and testing required before deployment.
+\item \textbf{Continuous Signaling:} Another conspicuously lacking element in past work is the absence of continuous feedback. Systems we have looked at so far continuously snapshot the environmental signals meant to be conveyed, reduce them over a time window to a lower resolution counterpart and then transmit this to the user. In the best case scenario, the user is presented with intermittent morsels of information in stark contrast to the fluid nature of the human umwelt. Studies \parencite{kristjansson_designing_nodate} regarding the effectiveness of sensory substitution devices indicate that "spatiotemporal continuity" is significant in maintaining immersion and shortening the training and acclimatization period. Based on this, our framework prioritizes the transmission of continuous signals. Measuring and increasing the frequency (in addition to the bandwidth metrics stated above) of transmitted information is also of value.
+\item \textbf{Effective Bandwidth:} While measurement of effective bandwidth is only possible in a task-based environment (after implementation), it is a priority in design to ensure that the no part of the system causes a bottleneck when conveying this information. This will involve making sure that network latency (when involved), as well as the hardware limitations of the device, are understood and accounted for.
 \item \textbf{Spatial Acuity: }The project will primarily focus on spatial navigation and other related objectives for the experiments, as implementing them on a realtime system will also satisfy the temporal acuity goal. The objective is to convey information regarding full 3-dimensional\footnote{It is worth noting that the related works we have considered resort to slicing 3-dimensional space to present a 2-dimensional version to the user. It is an interesting question if this approaches a fundamental limit.} space and object recognition with the intent of performing tasks.
 \item \textbf{Portability:} The rise of personal mobile devices presents an opportunity that had been closed to most previous studies. Attempting to make the implementation less expensive and more mobile and self-sufficient will be a priority. This means reducing the number of separate modules, reliance on experimentally determined conditions and power consumption just to name a few attributes.
 \end{itemize}
 
-The purpose of these goals is to serve as reasonable guidelines on which to evaluate the results derived, as well as a possible scaffold on which future extensions can be developed.
+The purpose of these goals is to serve as reasonable guidelines for evaluating the results derived, as well as a possible scaffold on which future extensions can be developed.
 
 \section{Components}
 \label{Components}
@@ -431,7 +432,7 @@ The purpose of these goals is to serve as reasonable guidelines on which to eval
 In the interest of modularization, the framework can be subdivided into the following general components, each with as close as possible to a distinct set of constraints, technical stacks and parameters for optimization:
 
 \begin{enumerate}
-\item \textbf{Transmission Interface:} The (primarily) hardware component that transmits (via haptic feedback in our case) already encoded information to the user. The optimizations here are towards making the system as responsive as possible, minimizing latency, as well as deciding the best components and control circuitry to improve the experience. As we will see later, even a choice of fabric for the instrument case or the type of soldering involved can have a major impact.
+\item \textbf{Transmission Interface:} The (primarily) hardware component that transmits (via haptic feedback in our case) previously encoded information to the user. The optimizations here are towards making the system as responsive as possible, minimizing latency, as well as deciding the best components and control circuitry to improve the experience. As we will see later, even a choice of fabric for the instrument case or the type of soldering involved can have a major impact.
 \item \textbf{Signal Encoder:} Despite the hardware-sounding name, this is primarily software-based, and handles the encoding of incoming sensor streams (with minor prior correction) to outgoing activation signals. From experiments, the location of this module is important - placing it as close to downstream\footnote{Terminology: Upstream is closest to the front-end while downstream is closest to the user.} as possible leads to lower latency, however there is a delicate balance to be struck. Devices tend to have more processing power as you move upstream, promising significant speedups that can offset the loss from distance.
 \item \textbf{Application:} This is the module that handles most tasks needed to ensure that the entire system is operational, including a networking module, display management, device enumeration and asynchronous processing, logging, etc.
 \item \textbf{World Interface:} The World Interface handles all aspects of the task being performed by the user. This may range from simulating a Virtual Reality environment to computer-vision based mapping and tracking of spaces for an Augmented Reality task. Task completion is also measured and reported from this module.
@@ -440,29 +441,29 @@ In the interest of modularization, the framework can be subdivided into the foll
 \chapter{Experiment}
 \label{Experiment}
 
-Now we can move to the tasks, as well as the metrics associated with them. The tasks, metrics and results are divided into Phases 1 and 2, where Phase 1 explores continuous-feedback based navigation in two dimensions. Phase 2 then builds on the work in Phase 1 to explore delayed-feedback based spatial navigation in three dimensions using a Fitts' test. The metrics are explored here, but the results are grouped in the results section afterwards.
+Now we can move to the tasks, as well as the metrics associated with them. The tasks, metrics and results are divided into Phases 1 and 2. Phase 1 explores continuous-feedback based navigation in two dimensions. Phase 2 then builds on the work in Phase 1 to investigate delayed-feedback based spatial navigation in three dimensions using a Fitts' test. The metrics are explained here, but the results are grouped in the results section afterwards.
 
 \section{Phase 1: Sightless Racing}
 
 In Phase 1, the virtual space of a car and race track were mapped to a haptic device. The primary aim of the experiments were to see if users with some training could intuitively drive the car around the track, dodging obstacles and following the road.
 
-With this in mind, the tech stack used is below in keeping with the module separation outlined in Section~\ref{Components}:
+With this in mind, the tech stack used is below, in keeping with the module separation outlined in Section~\ref{Components}:
 
 \begin{enumerate}
-\item \textbf{Transmission Interface:} The Transmission interface consists of servos that are rated at 1.6 kg-cm in torque, arranged on a flexible plastic film wrapped around the user's arm. The servos are outfitted with 3 cm arms that rotate down to push lightly into the user's skin, connected to a Raspberry Pi Model B, running a python server which communicates with the front-end. Figure~\ref{fig:device1} shows the device as it is fitted to the user's arm.
+\item \textbf{Transmission Interface:} The Transmission interface consists of servos, rated at 1.195 kg-cm\footnote{Datasheet information for the servo is provided in experiment design.} in torque, arranged on a flexible plastic film wrapped around the user's arm. The servos are outfitted with 3 cm arms that rotate down to push lightly into the user's skin, and also connected to a Raspberry Pi Model B, running a python server which communicates with the front-end. Figure~\ref{fig:device1} shows the device as it is fitted to the user's arm.
 
 \,
 
 \begin{figure}[ht]
 \centering\includegraphics[width=0.7\linewidth]{images/v1device.png}
-\caption[P1 Device]{Phase 1 Transmission Interface on a rather large arm.}
+\caption[P1 Device]{Phase 1 Transmission interface.}
 \decoRule
 \label{fig:device1}
 \end{figure}
 
-The basic material used for construction was determined after much trial and error. Optimizing for maximum sensitivity, the first configuration enabled the arms of the servos to directly make contact with the skin. While this did achieve the intended purpose, users were overstimulated and described sensations of "sensory overload" and "uncomfortable stretching and pulling". Fabric was the second option, but was overtly effective in dampening sensitivity and preventing users from distinguishing the servos, as well as adding noise due to the texture rubbing against the skin. In addition, fabric proved to quite unhygienic due to being permeable and receptive to sweat and grime, which made it unsuitable for continued use (especially with multiple participants). The ideal option proved to be the ESD-safe plastic bag that the servos arrived in - comfortable without being sharp around creases and stretch-proof, it had the added advantage of not carrying odors.
+The basic material used for construction was determined after much trial and error. Optimizing for maximum sensitivity, the first configuration enabled the arms of the servos to directly make contact with the skin. While this did achieve the intended purpose, users were overstimulated and described sensations of "sensory overload" and "uncomfortable stretching and pulling". Fabric was the second option, but was overtly effective in dampening sensitivity and preventing users from distinguishing the servos, as well as adding noise due to the texture rubbing against the skin. In addition, fabric proved to quite unhygienic as it was permeable and receptive to sweat and grime, which made it unsuitable for continued use (especially with multiple participants). The ideal option proved to be the ESD-safe plastic bag that the servos arrived in - comfortable without being sharp around creases and stretch-proof, it had the added advantage of not carrying odors.
 
-\item \textbf{Signal Encoder:} The Transmission Interface makes use of a 3x3 grid of servos, placed in a square on the user's arm (Figure~\ref{fig:device2}). Preliminary (with one or two participants) pilot testing helped eliminate configurations such as a strip around the arm, crowded circle placement, and lengthwise across the arm due to lack of sensitity and general discomfort. The final wide configuration also provided the advantage of being adaptable to other locations on the body, and easier to map in software.
+\item \textbf{Signal Encoder:} Design for the Signal Encoder begins with the configuration of servos in the Transmission Interface, which makes use of a 3x3 grid of servos. These are placed in a square on the user's arm (Figure~\ref{fig:device2}). Preliminary (with one or two participants) pilot testing helped eliminate configurations such as a strip around the arm, crowded circle placement, and lengthwise across the arm due to lack of sensitity and general discomfort. The final wide configuration also provided the advantage of being adaptable to other locations on the body, and easier to map in software.
 
 \,
 \begin{figure}[ht]
@@ -473,7 +474,7 @@ The basic material used for construction was determined after much trial and err
 \end{figure}
 
 The configuration contributed to the activation patterns in the Signal Encoder. Pilot testing revealed that the four corners were the most identifiable, and that the servos in between contributed to immersion.
-The information received was consolidated into four analog time streams, which was subsequently converted to discrete values of 16-bit resolution, which was then frequency modulated \parencite{noauthor_frequency_2017} and amplified to produce the activation signals for the corner servos. Figure~\ref{fig:plot1} shows how the activation signals are combined. For the servos in between the corners, a discrete signal was generated for them by alternating between their neighbors using a base frequency and likewise coded in frequency with a fixed amplitude.
+The information received was consolidated into four analog time streams, which was subsequently converted to discrete values of 16-bit resolution, which was then frequency modulated \parencite{noauthor_frequency_2017} and amplified to produce the activation signals for the corner servos. Figure~\ref{fig:plot1} shows how the activation signals are combined. For the servos in between the corners, a discrete signal was generated for them by alternating between their neighbors using a base frequency and likewise coded in frequency with a fixed amplitude. This configuration allows for four continuous vector streams which can be conveyed to the user.
 
 \,
 
@@ -496,7 +497,14 @@ This particular signal pattern proved most effective in shortening training time
 \label{fig:outrun}
 \end{figure}
 
-\item \textbf{World Interface:} The primary purpose of Phase 1 was to find the best possible signal encoding for real-time time-variant data. The users were presented with a familiar gaming interface resembling OutRun \parencite{noauthor_out_2017} (Figure~\ref{fig:outrun}, which made the initial introduction easier. The World Interface application responded to keyboard controls, and produced the following values as a continuous multi-dimensional vector: the current position of the car relative to the center of the road, the current position of the car relative to the road on current trajectory after t+4.0 seconds, and the positional information of obstacles.
+\item \textbf{World Interface:} The primary purpose of Phase 1 was to find the best possible signal encoding for real-time time-variant data. The users were presented with a familiar gaming interface resembling OutRun \parencite{noauthor_out_2017} (Figure~\ref{fig:outrun}, which made the initial introduction easier. The World Interface application responded to keyboard controls, and produced the following values as a continuous multi-dimensional vector:
+\begin{itemize}
+	\item the current position of the car relative to the center of the road,
+	\item the current position of the car relative to the road on current trajectory after t+4.0 seconds, and
+	\item the positional information of obstacles.
+\end{itemize}
+
+These input vectors are then provided to the signal encoder.
 
 \end{enumerate}
 
@@ -511,9 +519,9 @@ This particular signal pattern proved most effective in shortening training time
 
 The experimental setup involved a training stage and a testing stage. The training stage involved asking the participants to play the game while wearing the device for a fixed period of time (set to 10 minutes for standardisation) without being blindfolded.
 
-Following this, the testing stage had the participants blindfolded and playing the game solely using input from the haptic device.
+Following this, in the testing stage participants were blindfolded and played the game solely using input from the haptic device.
 
-Due to time and resource limitations, a formal experiment for Phase 1 was not performed. The device was tested at a hackathon on subjects of ages 6--65, and the general responses have confirmed it as an effective method of sensory substitution. With ten minutes of training (and no instruction as to the function of the device), all participants were able to play the game without crashing once out of every three laps on a procedurally generated randomized track. In addition, when encountering an obstacle or a turn in the road, all participants were able to reflexively\footnote{Interesting feature of note that differentiated other encodings was the report from users that they were 'remembering' the meaning of a signal as opposed to 'feeling' the result of a signal. My intuition is that the latter is a sign of the brain using non-conscious processing to understand the new input. Participants performed better across all categories when they reported that they were 'feeling' instead of 'remembering' (the terms borrowed from participants' recounting the experience).} judge the correct rate of turn and direction without hesitation\footnote{Younger participants were able to perform similarly as older participants with significantly less training time. This correlates with literature \parencite{kolb_brain_2011} in that age is negatively correlated with neuroplasticity.}.
+Due to time and resource limitations, a formal experiment for Phase 1 was not performed. The device was tested at a hackathon on subjects of ages 18--30, and the general responses have confirmed it as an effective method of sensory substitution. With ten minutes of training (and no instruction as to the function of the device), all participants were able to play the game without crashing on a procedurally generated randomized track. In addition, when encountering an obstacle or a turn in the road, all participants were able to reflexively\footnote{Interesting feature of note that differentiated other encodings was the report from users that they were 'remembering' the meaning of a signal as opposed to 'feeling' the result of a signal. My intuition is that the latter is a sign of the brain using non-conscious processing to understand the new input. Participants performed better across all categories when they reported that they were 'feeling' instead of 'remembering' (the terms borrowed from participants' recounting the experience).} judge the correct rate of turn and direction without hesitation\footnote{Younger participants were able to perform similarly as older participants with significantly less training time. This correlates with literature \parencite{kolb_brain_2011} in that age is negatively correlated with neuroplasticity.}.
 
 \section{Phase 2: Virtual Reality Fitts Test}
 
@@ -523,10 +531,28 @@ Shown in Figure~\ref{fig:experimentsetup}, the participants follow the training-
 Iteratively improving on the results and design of Phase 1, Phase 2 is a more complex task in a noisier environment. For one, Phase 1 operated on continuous-feedback. The participants were continuously made aware of success and failure in relation to the task, while Phase 2 provides delayed-feedback, where the completion of a task has a much more time-dilated response. In addition, moving from two dimensions (two vectors) of critical information to three adds the potential for noise and sensory overload. With this in mind, let's consider the modular design where it deviates from Phase 1:
 
 \begin{enumerate}
-	\item \textbf{World Interface: } As Phase 2 is built on top of Virtual Reality, the World Interface proved to be one of the most complex modules in terms of design and implementation. There are a number of offerings on the market for Virtual Reality, but spatial localisation is not well implemented. Tracking an object with certainty across a 3d space is an open problem in computer vision, and acceptable solutions with low latency have only recently become available on the consumer market. The options considered included implementing SLAM \parencite{noauthor_simultaneous_2017} a resource intensive algorithm to map indoor spaces using a single camera, and the two competing Virtual Reality products on the market that offer this functionality, the HTC Vive and the Oculus Rift. The Oculus Rift was chosen for the following reasons: One, the Rift offered easily extensible tracking algorithms in the form of HTC's Lighthouse technology\footnote{An interesting video capturing the operation of the Vive's lighthouses is at \href{https://www.youtube.com/watch?v=5yuUZV7cgd8}{https://www.youtube.com/watch?v=5yuUZV7cgd8}} \parencite{niehorster_accuracy_2017}, which promised to aid future research. Two, HTC Software was closely compatible with Steam VR and Unity, which enabled faster development and turnaround times. Finally, SLAM was abandoned as it lacked a robust implementation and would require coding work equivalent in time to another capstone to implement. Some open implementations \parencite{yan_contribute_2017}
-	\parencite{aivijay_lsd_slam_noros_2017} for SLAM exist, but none that can function within the constraints of a mobile device.
 
-	The World Interface (Figure~\ref{fig:vrfittss}) contains three primary parts. The first is a Fitts Test board, which contains targets that need to be selected in a randomized order. The second is a controller that virtually represents a physical object held by the participant, and the third is a virtual pointer being extruded at the same angle as the controller. The participants can click the controller via a provided button, and are asked to select the targets as instructed through color (for sight) and the haptic device. Red represents the next target, yellow for any selected target, and green when the right target has been selected.
+	\item \textbf{Transmission Interface:} The transmission interface remained identical to the previous phase.
+
+	\item \textbf{Signal Encoder:} As to be described in the World Interface section, Phase 2 encodes 3D information, in this case the position of user-directed controller relative to a designated target object. The first consideration in the design of the Signal Encoder involved the mapping of spatial orientation in regards to the controller. A number of options underwent preliminary pilot testing, which included a cartesian set of vectors in 3D space, polar coordinates encoding the angle and distance to a target, and other more convoluted sets of representations. The testing revealed the most effective mapping to be a set of cartesian vectors adjusted to the user's orientation, such that the controllers' left, right, up and down were the same as the participants'. Performance was also improved when these vectors were inverted to provide adjustment information rather than absolute information (eg. 'go left to find the target' as opposed to 'you are right of the target' in terms of an instruction). For additional information, a new binary vector was added (an alert variable) that switched on for half a second when the pointer encountered the correct target to measure the effects.
+
+	\begin{figure}[h]
+		\centering\includegraphics[width=1\linewidth]{images/fittscoords.png}
+		\decoRule
+		\caption[Cartesian Vectors in VR]{Overlay representing the cartesian vectors' magnitude and origin.}
+		\label{fig:fittscoords}
+	\end{figure}
+
+	Figure~\ref{fig:fittscoords} shows a representation of the magnitude and origin positioning of the vectors conveyed through the haptic interface.
+
+
+	\item \textbf{Application: } The application, due to restraints imposed by the introduction of VR, was developed in C\# on the server side. The same software was used on the client side as Phase 1, with some modifications.
+
+
+	\item \textbf{World Interface: } As Phase 2 is built on top of Virtual Reality, the World Interface proved to be one of the most complex modules in terms of design and implementation. There are a number of offerings on the market for Virtual Reality, but spatial localisation is not well implemented. Tracking an object with certainty across a 3d space is an open problem in computer vision, and acceptable solutions with low latency have only recently become available on the consumer market. The options considered included implementing SLAM \parencite{noauthor_simultaneous_2017} a resource intensive algorithm to map indoor spaces using a single camera, and the two competing Virtual Reality products on the market that offer this functionality, the HTC Vive and the Oculus Rift. SLAM was abandoned as it lacked a robust implementation and would require coding work equivalent in time to a separate capstone to implement. Some open implementations \parencite{yan_contribute_2017}
+	\parencite{aivijay_lsd_slam_noros_2017} for SLAM exist, but none that can function within the constraints of a mobile device. In the end, the HTC Vive was chosen for the following reasons: One, the Vive offered easily extensible tracking algorithms in the form of HTC's Lighthouse technology\footnote{An interesting video capturing the operation of the Vive's lighthouses is at \href{https://www.youtube.com/watch?v=5yuUZV7cgd8}{https://www.youtube.com/watch?v=5yuUZV7cgd8}} \parencite{niehorster_accuracy_2017}, which promised to aid future research. Two, HTC Software was closely compatible with Steam VR and Unity, which enabled faster development and turnaround times.
+
+	The World Interface (Figure~\ref{fig:vrfittss}) contains three primary parts. The first is a virtual Fitts Test board, which contains targets that need to be selected in a randomized order. The second is a controller that exists both virtually and as a physical object held by the participant. The third is a virtual pointer extruded from the controller at the same angle. The participants can click the controller via an attached button, and are asked to do so in order to select the correct target, indicated either through color (for sight) or instruction from the haptic device. Red represents the next target, yellow for any selected target, and green when the right target has been selected.
 
 	\begin{figure}[h]
 		\centering\includegraphics[width=1\linewidth]{images/vrfittsscreenshot.png}
@@ -535,19 +561,8 @@ Iteratively improving on the results and design of Phase 1, Phase 2 is a more co
 		\label{fig:vrfittss}
 	\end{figure}
 
-	\item \textbf{Application: } The application, due to restraints imposed by the introduction of VR, was developed in C\# on the server side. The same software was used on the client side as Phase 1, with some modifications.
 
 
-	\item \textbf{Signal Encoder:} The first consideration in the design of the Signal Encoder involved the mapping of spatial orientation in regards to the controller. A number of options underwent preliminary pilot testing, which included a cartesian set of vectors in 3D space, polar coordinates encoding the angle and distance to a target, and other more convoluted sets of representations. The testing revealed the most effective mapping to be a set of cartesian vectors adjusted to the user's orientation, such that the controllers' left, right, up and down were the same as the participants'. Performance was also improved when these vectors were inverted to provide adjustment information rather than absolute information (eg. 'go left to find the target' as opposed to 'you are right of the target' in terms of an instruction). For additional information, a new binary vector was added that switched to \textbf{1} for half a second when the pointer encountered the correct target to measure the effects.
-
-	\begin{figure}[h]
-		\centering\includegraphics[width=1\linewidth]{images/fittscoords.png}
-		\decoRule
-		\caption[Cartesian Vectors in VR]{Overlay representing of cartesian vector magnitude and origin.}
-		\label{fig:fittscoords}
-	\end{figure}
-
-	Figure~\ref{fig:fittscoords} shows a representation of the magnitude and origin positioning of the vectors conveyed through the haptic interface.
 \end{enumerate}
 
 Complete with the design, we can now move to the results.
@@ -555,9 +570,9 @@ Complete with the design, we can now move to the results.
 \chapter{Results}
 \label{Results}
 
-\subsection{Experimental Apparatus}
+\section{Experimental Apparatus}
 
-The haptic device mentioned in detail above was made of a Raspberry Pi Model B\footnote{1.2 Ghz Quad-core ARMv8 CPU, 1 GB RAM, 40 GPIO Pins (with nine pins operating in software PWM mode). The Raspberry Pi was running the Wheezy distribution of Raspbian OS from a 16 GB micro SD card.}, which was used to drive the nine servos\footnote{Rated for torque: 0.117 Nm at 4.4V, speed: 0.15 sec/$\circ$, single-top ball bearing nylon gear servo. Part No. A0090} as part of the haptic device at 3.3V. The Rasberry Pi was run in headless mode, connected via SSH to a BASH terminal for logging. The front-end computer was a custom built desktop\footnote{Intel Core i7-6700K CPU @ 4.00 Ghz, 16 GB RAM, 64-bit Windows 10 Professional with an NVIDIA GeForce GTC 980 Ti} connected to a Sharp PN-K321 4K (3840x2160) 32" monitor with a Logi Master MX mouse and a Logi CRAFT keyboard. All trials were performed in an isolated room at Yale-NUS, away from distractions.
+The haptic device mentioned in detail above was made of a Raspberry Pi Model B\footnote{1.2 Ghz Quad-core ARMv8 CPU, 1 GB RAM, 40 GPIO Pins (with nine pins operating in software PWM mode). The Raspberry Pi was running the Wheezy distribution of Raspbian OS from a 16 GB micro SD card.}, which was used to drive the nine servos\footnote{Rated for torque: 1.195 kg-cm at 4.8V, speed: 0.15 sec/$\circ$, single-top ball bearing nylon gear servo. Part No. A0090} as part of the haptic device at 3.3V. The Rasberry Pi was run in headless mode, connected via SSH to a BASH terminal for logging. The front-end computer was a custom built desktop\footnote{Intel Core i7-6700K CPU @ 4.00 Ghz, 16 GB RAM, 64-bit Windows 10 Professional with an NVIDIA GeForce GTC 980 Ti} connected to a Sharp PN-K321 4K (3840x2160) 32" monitor with a Logi Master MX mouse and a Logi CRAFT keyboard. All trials were performed in an isolated room at Yale-NUS, away from distractions.
 
 \begin{figure}[h]
 	\centering\includegraphics[width=1\linewidth]{images/experimentsetup.jpg}
@@ -574,7 +589,7 @@ For Phase 2, the HTC Vive Virtual Reality headset was used in stock configuratio
 
 Pilot testing for Phase 1 was performed at a hackathon, with 7 participants (2 female, 5 male) after which the data was aggregated and anonymized. Each participant was given five minutes of training and five minutes of testing (blind) time, and the participants were between 18 to 25 years of age.
 
-8 participants (2 female, 6 male, 1 left-handed, 7 right-handed) were selected for testing Phase 2 of the prototype. All participants were between 18 to 25 years of age. Informed consent was obtained from all participants beforehand, and the experiment lasted 45-minutes on average.
+8 participants (2 female, 6 male, 1 left-handed, 7 right-handed) were selected for testing Phase 2 of the prototype. All participants were between 18 to 25 years of age. The experiment lasted 45-minutes on average. Informed consent was obtained from all participants beforehand.
 
 \section{Phase 1}
 
@@ -587,13 +602,13 @@ Phase 1 results were collected primarily in a single dimension: error. The error
 	\label{fig:p1error}
 \end{figure}
 
-From the graph, we can see that the error when playing blind is still within the same order of magnitude as the error with sight. Participants were able to correctly steer the vehicle and complete multiple laps of the track without visual aid. Correcting for the procedurally generated track with easier and tougher sections, we can see that graphing blind error over non-blind shows a training effect where the error decreases over time\footnote{Note that this is preliminary testing and needs to be confirmed through further experiments.}.
+From the graph, we can see that the error when playing blind is still within the same order of magnitude as the error with sight. Participants were able to correctly steer the vehicle and complete multiple laps of the track without visual aid. Correcting for the procedurally generated track which has easier and tougher sections, we can see that graphing blind error over non-blind shows a training effect where the error decreases over time\footnote{Note that this is a result of preliminary testing and needs to be confirmed through further experiments.}.
 
 \section{Phase 2}
 
-In Phase 2, the Fitts' Test is used because it is currently a standard in measuring human-computer interfaces. Fitts' Law is useful in our case, but it is only peripherally relevant to the scope of this paper. Measuring the information-theoretic maximum of a sensory substitution model is something that deserves an exploration on itself, and is therefore left to future research. The Fitts' Test however, provides data that can be used by other researchers to compare our data and to compile a growing dataset. It therefore stands to reason that our primary measurements be the same as those in a Fitts' Test. The primary measurements that are common in this modality \parencite{mackenzie_extending_1992} \parencite{chun_evaluating_2004} are the time taken to reach a target, and the distance from the center of the target when a successful click is made (also called error).
+In Phase 2, the Fitts' Test is used because it is currently a standard in measuring human-computer interfaces. Fitts' Law is useful in our case, but it is only peripherally relevant to the scope of this paper. Measuring the information-theoretic maximum of a sensory substitution model is something that deserves an exploration in and of itself, and is therefore left to future research. The Fitts' Test however, provides data that can be used by other researchers to compare our data and to compile a growing dataset. It therefore stands to reason that our primary measurements be the same as those in a Fitts' Test. The primary measurements that are common in this modality \parencite{mackenzie_extending_1992} \parencite{chun_evaluating_2004} are the time taken to reach a target, and the distance from the center of the target when a successful click is made (also called error).
 
-The Fitts' Test was performed in four sessions comprising of five blocks, each block representing one complete circle where all targets were selected. Of the five blocks, information from the first block was discarded and marked as training. Among the four sessions, two independent variables were chosen and varied across the sessions. The two variables were whether the participant had sight (blind vs non-blind), and whether an alert-tone (as described above) was given (alert vs non-alert).
+The Fitts' Test was performed in four trials, each comprising of five sessions. Each session represented one completion of the Fitts Test board, with all targets being selected. Of the five sessions, information from the first was discarded and marked as training. Among the four trials, two independent variables were chosen and varied between the trials. These variables were whether the participant had sight (blind vs non-blind), and whether an alert tone (as described earlier) was given (alert vs non-alert).
 
 In addition, the time taken to reach an individual target is also affected by the distance between the two targets. This was corrected by dividing the total time taken for each target by the distance between the previous target and the intended target.
 
@@ -606,7 +621,7 @@ In addition, the time taken to reach an individual target is also affected by th
 
 Figure~\ref{fig:p2time} shows how the average time to target, corrected for distance, varies across the two parameters. Changing the blind component affects the average by more than two orders of magnitude, which is very different from the results we observed in Phase 1. This is presumably due to the added noise and variation involved in the system, along with the delayed-feedback mechanism at play.
 
-We can also see that there is a lot more variation in the blind trials, and this was confirmed by the researcher as the participants often vascillated heavily in deciding which direction they needed to move in. What is interesting is that providing an alert notification increases the amount of time taken to hit a target. While counter-intuitive, in practice it was observed (and reported by participants) that the alert notification worked counter to the participant training him/herself to learn the other signals. What was even more surprising was that this remained true even when the participants could see the targets in front of them. The alert tone proved to be a distraction that lengthened training times and possibly prevented the participants from `feeling` the signals being conveyed.
+We can also see that there is a lot more variation in the blind trials, and this was observed in practice by the researcher as the participants often vascillated heavily in deciding which direction they needed to move in. What is interesting is that providing an alert notification increases the amount of time taken to hit a target. While counter-intuitive, in practice it was observed (and reported by participants) that the alert notification worked counter to the participant training him/herself to learn the other signals. What was even more surprising was that this remained true even when the participants could see the targets in front of them. The alert tone proved to be a distraction that lengthened training times and possibly prevented the participants from `feeling` the signals being conveyed.
 
 ANOVA confirms this intuition as we can see in Table~\ref{tab:p2timinganova}. There is a strong effect on blind vs non-blind on the time taken to hit a target ($p < 9.6 \times 10^{-68}$). There is also a significant effect from the alert variable ($p ~ 3.9 \times 10^{-5}$).
 
@@ -628,7 +643,7 @@ ANOVA confirms this intuition as we can see in Table~\ref{tab:p2timinganova}. Th
 	\label{tab:p2timinganova}
 \end{table}
 
-There is also significant interaction between the two variables, but it will need further testing to clarify. The alert variable is also the strongest affected by latency. Participants reported latency problems with the alert variable far more than they did with the other vectors, and this is understandable since the alert variable is binary while the others are continuous. Non-blind trials tend to have a higher velocity of movement than blind, since the participant is immediately sure of which direction to move in and how quickly. My educated guess is that the increased velocity accentuates problems with latency, which then affect the results differently. While a participant while blindfolded can be quite sure that he has passed over the target when the alert parameter activates, he or she is far more likely to be confused if they aren't blindfolded.
+There is significant interaction between the two variables, but this could be due to a number of reasons. From conversations with participants, the alert variable is also the most affected by latency. Participants reported latency problems with the alert variable far more than they did with the other vectors, and this is understandable since the alert variable is binary while the others are continuous. Non-blind trials tend to have a higher velocity of movement for the pointer than blind, since the participant is immediately sure of which direction to move in and how quickly. My educated guess is that the increased velocity accentuates problems with latency, which then affect the results differently. A participant while blindfolded can be quite sure that he has passed over the target when the alert parameter activates, but he or she is far more likely to be confused if they aren't blindfolded.
 
 Figure~\ref{fig:timing} further illustrates this uncertainty, as we can see that the results vary widely between trials, rounds, sessions and users.
 
@@ -658,7 +673,7 @@ Moving on to the second measurement, the distance from the center of each target
 	\label{fig:p2error}
 \end{figure}
 
-From the graph, it doesn't seem that the presence of the alert variable has a strong effect on the target error. This is surprising as many participants had reported that they felt ``less accurate'' if the alert was given, since they would click much sooner and closer to the edges of a target. What is also interesting is that what little effect there is on the cumulative average is affected by whether the participants are blindfolded. It is very likely within the margin of error, as ANOVA (Figure~\ref{tab:p2erroranova}) fails to report any significance in the effect of the alert variable. It does however, place the effect of blindfolding as significant ($p < 1.0 \times 10^{-4}$, as expected) along with the interaction of the two variables. The true cause of this interaction is unknown, and as in the prior case further study is needed.
+From the graph, it doesn't seem that the presence of the alert variable has a strong effect on the target error. This is surprising as many participants had reported that they felt ``less accurate'' if the alert was given, since they would click much sooner and closer to the edges of a target. What is also interesting is that the small effect the alert variable has on the cumulative average is affected by whether the participants are blindfolded. This is very likely within the margin of error, as ANOVA (Figure~\ref{tab:p2erroranova}) fails to report any significance in the effect of the alert variable. It does however, place the effect of blindfolding as significant ($p < 1.0 \times 10^{-4}$, as expected) along with the interaction of the two variables. The true cause of this interaction is unknown, and as in the prior case, further study is needed.
 
 \begin{table}
 	\centering
@@ -676,7 +691,7 @@ From the graph, it doesn't seem that the presence of the alert variable has a st
 	\label{tab:p2erroranova}
 \end{table}
 
-Further investigating the myriad interactions here, let's group results by individual. Figure~\ref{fig:p2individuals} shows a much clearer picture of how each individual performs against the variables as they change. Here we can see that the communal indicators are clearly misaligned with individual outcomes when the alert variable is introduced. In fact, the choice of individual clearly seems significant in determining how the alert variable affects the results.
+To further investigating the myriad interactions here, the results are shown by individual. Figure~\ref{fig:p2individuals} shows a much clearer picture of how each individual performs against the variables. Here we can see that the communal indicators are clearly misaligned with individual outcomes when the alert variable is introduced. In fact, the choice of individual clearly seems significant in determining how the alert variable affects the results.
 
 \begin{figure}[h]
 	\centering\includegraphics[width=1\linewidth]{images/individuals}
@@ -687,7 +702,7 @@ Further investigating the myriad interactions here, let's group results by indiv
 
 \section{Discussion}
 
-While a number of insights can be gleaned from the results gathered here, the strongest one is that increasing the number of dimensions merits a scaling-up of the sample size almost as much, perhaps even more so than the number of independent variables being modified. The uncertainty involved in human learning makes evaluating the effectiveness of more complex systems a challenging task. In reference to the related work that we have covered, it is clear that a mathematical model for determining sample size \textit{relative} to the complexity of the transmission protocol needs to be developed. However, the nature of the tasks used in the experiments here, which modify feedback latency, number of vectors, overall bandwidth and the measurements therein present a good framework against which to evaluate future work.
+While a number of insights can be gleaned from the results gathered here, the strongest one is that increasing the number of dimensions merits a scaling-up of the sample size almost as much, perhaps even more so than the number of independent variables being modified. The uncertainty involved in human learning makes evaluating the effectiveness of more complex systems a challenging task. In reference to the related work that we have covered, it is clear that a mathematical model for determining sample size \textit{relative} to the complexity of the transmission protocol needs to be developed. However, the nature of the tasks used in the experiments here, which modify feedback latency, number of vectors, overall bandwidth and the measurements therein, present a good framework against which to evaluate future work.
 
 That being said, a few insights found in conducting the experiments that explain the behavior of the system can be laid out.
 
@@ -707,9 +722,19 @@ Something that seemed to influence the participants was the active nature of the
 
 Finally, such experiments could benefit from tighter control over the demographics. While this increases the effort on the researcher's part, variation across the participants in age, build, gender and even mental state seemed to have a strong effect on the responses garnered therein. From prior experience in Human Computer Interfaces, this was much more pronounced here than in interfaces that required only a conscious level of learning.
 
+\subsection{Evaluation}
+
+From the measurements made so far, we can compile a useful metric for evaluating the performance of such a system. The salient points of such a metric would include:
+\begin{enumerate}
+	\item Tests that can be replicated across various platforms and interfaces, such as the Fitts' design and driving simulation presented here. Both tests can be extended to the real world, or susbequently made more complex to evaluate maximum possible bandwidth of a system in virtual space.
+	\item Identification of the properties of such a system, which include the type of feedback loop being created, the encoding being used and its ability to be used as a generic transport for multiple forms of data, as well as the possible mapping and domain space of output and input information.
+	\item A testing paradigm that focuses on improving the training and testing performance of the system as opposed to just test performance.
+	\item Additional methods for measuring loss/failure rate of the system at the high resolution. An example would be the measurement of drift/error in Phase 1, and the adjusted timing metric used in Phase 2.
+\end{enumerate}
+
 \section{Further Research}
 
-Due to the limited resources and scope of this paper, there is much to be desired in further work. Understanding the cognitive cycles of learning and intuition seem to hold the key to building high-bandwidth systems that can replace or enhance entire senses. As a next step, experiments in understanding the relationship between individual makeup, training time and training modality might be in order. Longer training sessions with intermittent testing periods can help measure the change as the brain comes to accept the new sense and begin to process the new reality.
+Due to the limited resources and scope of this paper, there is much to be desired in further work. Understanding of the cognitive cycles of learning and intuition seems to hold the key to building high-bandwidth systems that can replace or enhance entire senses. As a next step, experiments in understanding the relationship between individual makeup, training time and training modality might be in order. Longer training sessions with intermittent testing periods can help measure the change as the brain comes to accept the new sense and begin to process the new reality.
 
 The design framework, experiment structure and measurement protocols described herein were built with extensibility in mind. Future work could involve building on top of the encoding protocols to facilitate better cognitive acceptance of the new sense, as well as using standard tests such as Fitts' across multiple interfaces to compare and contrast possible best practices.
 
@@ -717,7 +742,7 @@ Finally, within the modular components of the framework lie the possibility of i
 
 \section{Conclusion}
 
-In this paper, new frameworks, metrics and experiments for performing sensory substitution were explored in a way that made use of new advances in technology. The investigations demonstrated the need for more such frameworks that can be generalized towards conveying information as opposed to being successful at a specific task. The experiments found that the effects were strongly related to the dimensionality of input data, as well as the particular encoding being used.
+In this paper, new frameworks, metrics and experiments for performing sensory substitution were explored in a way that made use of new advances in technology. The investigations demonstrated the need for more frameworks that can be generalized towards conveying information as opposed to being successful at a specific task. The experiments found that the effects were strongly related to the dimensionality of input data, as well as the particular encoding being used.
 
 The experiments were successful in developing a complete framework that enabled users to replace--for the purposes of spatial navigation in two and three dimensions--an existing sense in a manner that lowered cognitive load and the possibility of sensory overload. This has applications in Robotic Surgery and information dense environments such as combat fighters, MMORPGS, and data processing.
 
